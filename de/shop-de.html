@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop · Raspberry Pi</title>
+  <meta name="description" content="Alle Raspberry Pi Produkte: Pi 5, Zero, Starter Kits und Zubehör.">
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="../cart.css">
+  <link rel="icon" type="image/png" href="../pic/raspberrypi_logo.png">
+</head>
+<body>
+
+<!-- Cart Overlay & Drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Warenkorb">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">🛒 Warenkorb</span>
+    <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-drawer-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span id="cartTotalLabel">Gesamt</span>
+      <span class="cart-total-price" id="cartTotal">€ 0</span>
+    </div>
+    <div class="cart-actions">
+      <button class="cart-btn-clear" id="cartClearBtn">Leeren</button>
+      <button class="cart-btn-checkout" id="cartCheckoutBtn">Zur Kasse</button>
+    </div>
+  </div>
+</div>
+<div id="cart-toast" class="cart-toast"></div>
+<header class="site-header" id="siteHeader">
+  <div class="container nav-container">
+    <a href="index-de.html" class="brand" aria-label="Raspberry Pi Home">
+      <img src="../pic/raspberrypi_logo.png" alt="Raspberry Pi Logo" class="brand-logo">
+      <span class="brand-text">raspberry<span>pi</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="index-de.html" class="nav-link">Home</a></li>
+        <li><a href="geschichte-de.html" class="nav-link">Geschichte</a></li>
+        <li><a href="shop-de.html" class="nav-link active">Shop</a></li>
+        <li><a href="hardware-de.html" class="nav-link">Hardware</a></li>
+        <li><a href="software-de.html" class="nav-link">Software</a></li>
+        <li><a href="support-de.html" class="nav-link">Support</a></li>
+        <li><a href="contact-de.html" class="nav-link">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-flags" role="navigation" aria-label="Sprache"><a href="shop-de.html" class="lang-flag-btn lang-active" title="DE"><span class="lang-flag-icon">🇩🇪</span><span class="lang-code-label">DE</span></a><a href="../it/shop-it.html" class="lang-flag-btn" title="IT"><span class="lang-flag-icon">🇮🇹</span><span class="lang-code-label">IT</span></a><a href="../en/shop-en.html" class="lang-flag-btn" title="EN"><span class="lang-flag-icon">🇬🇧</span><span class="lang-code-label">EN</span></a></div>
+      <button class="cart-btn" id="cartBtn" aria-label="Warenkorb">🛒<span class="cart-badge" aria-live="polite">0</span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Dark Mode umschalten">
+        <span class="theme-icon-sun" aria-hidden="true">☀️</span>
+        <span class="theme-icon-moon" aria-hidden="true">🌙</span>
+      </button>
+      <button class="mobile-menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <!-- HERO -->
+  <section class="hero-full" style="min-height:50vh">
+    <div class="hero-full-img"><img src="../pic/raspberry-pi-Starter-kit.png" alt="Starter Kit" loading="eager" style="background:#f5f5f0;object-position:center"></div>
+    <div class="hero-full-overlay"><div class="container"><div class="hero-full-content">
+      <span class="hero-badge-white">alle produkte</span>
+      <h1>Unser Shop</h1>
+      <p>Das perfekte Raspberry Pi Produkt für jedes Projekt – von Einsteiger bis Profi.</p>
+    </div></div></div>
+  </section>
+
+  <!-- EMPFOHLENE BUNDLES -->
+  <section class="intro-section" style="background:var(--bg-primary)">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">empfehlungen</span>
+        <h2>Wo anfangen?</h2>
+        <p class="section-subhead">Drei einfache Einstiegspunkte – je nach Erfahrung und Budget.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-bottom:2rem">
+        <div style="background:var(--bg-secondary);border:2px solid var(--raspberry-red);border-radius:var(--radius-lg);padding:1.5rem;position:relative">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--raspberry-red);color:white;font-size:.7rem;font-weight:700;padding:.2rem .8rem;border-radius:99px;text-transform:uppercase">Einsteiger</div>
+          <div style="font-size:2rem;margin-bottom:.75rem">🚀</div>
+          <h3 style="margin-bottom:.5rem">Starter Kit</h3>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Pi 5, Netzteil, Gehäuse, 64 GB SD-Karte und aktiver Kühler. Alles was du für den Start brauchst.</p>
+          <div style="font-size:1.4rem;font-weight:800;color:var(--raspberry-red);margin-bottom:.75rem">Ab 120 €</div>
+          <a href="#" class="btn btn-primary" style="display:flex;justify-content:center">Kaufen</a>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;position:relative">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--bg-tertiary);color:var(--text-secondary);font-size:.7rem;font-weight:700;padding:.2rem .8rem;border-radius:99px;text-transform:uppercase;border:1px solid var(--border-color)">Fortgeschritten</div>
+          <div style="font-size:2rem;margin-bottom:.75rem">⚡</div>
+          <h3 style="margin-bottom:.5rem">Pi 5 – 8 GB</h3>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Nur das Board. Ideal wenn du schon Netzteil, Gehäuse und SD-Karte vom Pi 4 hast.</p>
+          <div style="font-size:1.4rem;font-weight:800;color:var(--raspberry-red);margin-bottom:.75rem">€ 84</div>
+          <a href="#" class="btn btn-primary" style="display:flex;justify-content:center">Kaufen</a>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;position:relative">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--bg-tertiary);color:var(--text-secondary);font-size:.7rem;font-weight:700;padding:.2rem .8rem;border-radius:99px;text-transform:uppercase;border:1px solid var(--border-color)">Maker</div>
+          <div style="font-size:2rem;margin-bottom:.75rem">🔧</div>
+          <h3 style="margin-bottom:.5rem">Pi Zero 2 W</h3>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Klein, günstig, vollwertig. Perfekt für Wearables, Kameramodule und versteckte Sensoren.</p>
+          <div style="font-size:1.4rem;font-weight:800;color:var(--raspberry-red);margin-bottom:.75rem">€ 15</div>
+          <a href="#" class="btn btn-primary" style="display:flex;justify-content:center">Kaufen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALLE PRODUKTE -->
+  <section class="family-section">
+    <div class="container">
+      <div class="section-header"><span class="section-eyebrow">alle produkte</span><h2>Vollständiges Sortiment</h2></div>
+      <div class="family-grid">
+        <div class="family-card reveal">
+          <div class="family-img-wrap"><img src="../pic/16gb.png" alt="Pi 5 16GB" loading="lazy"></div>
+          <div class="family-info"><span class="family-badge new-badge">Neu</span><h3>Raspberry Pi 5 – 16 GB</h3>
+            <p>BCM2712, 2,4 GHz, PCIe 2.0, USB 3.0. Maximale Leistung für anspruchsvolle Projekte.</p>
+            <ul style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0;padding-left:1rem">
+              <li>16 GB LPDDR4X RAM</li><li>PCIe 2.0 für NVMe SSD</li><li>Dual 4K HDMI</li>
+            </ul>
+            <div class="family-price">€ 120</div>
+            <a href="#" class="btn btn-primary" style="display:flex;justify-content:center;margin-top:.75rem">In den Warenkorb</a>
+          </div>
+        </div>
+        <div class="family-card reveal">
+          <div class="family-img-wrap"><img src="../pic/pi5_8GB-150x112.png" alt="Pi 5 8GB" loading="lazy" style="object-fit:contain"></div>
+          <div class="family-info"><span class="family-badge new-badge">Neu</span><h3>Raspberry Pi 5 – 8 GB</h3>
+            <p>BCM2712, 8 GB LPDDR4X RAM. Das meistgekaufte Modell für Entwickler und Maker.</p>
+            <ul style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0;padding-left:1rem">
+              <li>8 GB LPDDR4X RAM</li><li>Gigabit Ethernet</li><li>Wi-Fi 802.11ac</li>
+            </ul>
+            <div class="family-price">€ 84</div>
+            <a href="#" class="btn btn-primary" style="display:flex;justify-content:center;margin-top:.75rem">In den Warenkorb</a>
+          </div>
+        </div>
+        <div class="family-card reveal">
+          <div class="family-img-wrap"><img src="../pic/zero2-hero.png" alt="Pi Zero 2 W" loading="lazy"></div>
+          <div class="family-info"><span class="family-badge">Kompakt</span><h3>Pi Zero 2 W</h3>
+            <p>Daumengroß und vollwertig. Für Wearables, IoT und alle Projekte wo Größe zählt.</p>
+            <ul style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0;padding-left:1rem">
+              <li>512 MB RAM</li><li>Wi-Fi & Bluetooth</li><li>65 × 30 mm</li>
+            </ul>
+            <div class="family-price">€ 15</div>
+            <a href="#" class="btn btn-primary" style="display:flex;justify-content:center;margin-top:.75rem">In den Warenkorb</a>
+          </div>
+        </div>
+        <div class="family-card reveal">
+          <div class="family-img-wrap"><img src="../pic/hero_tastature_Pi500.png" alt="Pi 500" loading="lazy"></div>
+          <div class="family-info"><span class="family-badge">All-in-One</span><h3>Pi 500</h3>
+            <p>Computer und Tastatur in einem Gehäuse. Monitor anschließen – sofort bereit.</p>
+            <ul style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0;padding-left:1rem">
+              <li>BCM2712 / 8 GB RAM</li><li>Integrierte Tastatur</li><li>USB-C & Micro-HDMI</li>
+            </ul>
+            <div class="family-price">Ab € 90</div>
+            <a href="#" class="btn btn-primary" style="display:flex;justify-content:center;margin-top:.75rem">In den Warenkorb</a>
+          </div>
+        </div>
+        <div class="family-card reveal">
+          <div class="family-img-wrap"><img src="../pic/raspberry-pi-Starter-kit.png" alt="Starter Kit" loading="lazy" style="object-fit:contain;background:#f5f5f0"></div>
+          <div class="family-info"><span class="family-badge new-badge">Empfohlen</span><h3>Starter Kit – Pi 5</h3>
+            <p>Das komplette Paket für Einsteiger. Sofort einsatzbereit, nichts fehlt.</p>
+            <ul style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0;padding-left:1rem">
+              <li>Pi 5 (4 GB), Netzteil 5A</li><li>Offizielles Gehäuse + Kühler</li><li>64 GB SD-Karte A2 + HDMI-Kabel</li>
+            </ul>
+            <div class="family-price">Ab € 120</div>
+            <a href="#" class="btn btn-primary" style="display:flex;justify-content:center;margin-top:.75rem">In den Warenkorb</a>
+          </div>
+        </div>
+        <div class="family-card reveal">
+          <div class="family-img-wrap"><img src="../pic/zero2-little-genius.png" alt="Zubehör" loading="lazy"></div>
+          <div class="family-info"><span class="family-badge">Zubehör</span><h3>Kamera, Sensoren & HATs</h3>
+            <p>Pi Camera 3, HAT-Module, aktive Kühler, Kühlkörper, Display-Module und mehr.</p>
+            <ul style="font-size:.78rem;color:var(--text-muted);margin:.5rem 0;padding-left:1rem">
+              <li>Pi Camera 3 (12 MP, Autofokus)</li><li>M.2 HAT für NVMe SSD</li><li>PoE+ HAT</li>
+            </ul>
+            <div class="family-price">Ab € 8</div>
+            <a href="#" class="btn btn-outline" style="display:flex;justify-content:center;margin-top:.75rem">Alle ansehen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARUM BEI UNS KAUFEN -->
+  <section class="values-photo-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-eyebrow">unser versprechen</span>
+        <h2>Warum direkt kaufen?</h2>
+      </div>
+      <div class="values-photo-grid">
+        <div class="value-photo-card reveal">
+          <div class="value-photo-img"><img src="../pic/value-sustainability.png" alt="Originale Produkte" loading="lazy"></div>
+          <div class="value-photo-body">
+            <span class="highlight-tag">Originalware</span>
+            <h3>100% original</h3>
+            <p>Alle Produkte sind offiziell von der Raspberry Pi Foundation. Keine Nachbauten, keine grauen Importe.</p>
+          </div>
+        </div>
+        <div class="value-photo-card reveal">
+          <div class="value-photo-img"><img src="../pic/compliance-and-support.png" alt="Qualitätskontrolle" loading="lazy"></div>
+          <div class="value-photo-body">
+            <span class="highlight-tag">Qualität</span>
+            <h3>Strenge Qualitätskontrolle</h3>
+            <p>Jedes Board wird vor dem Versand getestet. CE, FCC und RoHS zertifiziert für den Einsatz in ganz Europa.</p>
+          </div>
+        </div>
+        <div class="value-photo-card reveal">
+          <div class="value-photo-img"><img src="../pic/value-education.png" alt="Support" loading="lazy"></div>
+          <div class="value-photo-body">
+            <span class="highlight-tag">Support</span>
+            <h3>Community & Hilfe</h3>
+            <p>Bei Fragen steht dir unsere aktive Community zur Seite. Forum, Tutorials und direkte Hilfe inklusive.</p>
+            <a href="support-de.html" class="card-link">Zum Support →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index-de.html" class="brand-footer">
+        <img src="../pic/raspberrypi_logo.png" alt="Logo" style="width:26px;height:26px;object-fit:contain;filter:brightness(10)">
+        <span class="brand-text">raspberry<span>pi</span></span>
+      </a>
+      <p>Technologie mit Herz. Seit 2012 für eine offene und inklusive digitale Zukunft.</p>
+      <div class="footer-social"><a href="https://github.com/raspberrypi" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a><a href="https://youtube.com/@raspberrypi" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://discord.gg/raspberrypi" class="social-link" aria-label="Discord" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028z"/></svg></a><a href="https://forums.raspberrypi.com" class="social-link" aria-label="Forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div>
+    </div>
+    <div class="footer-links">
+      <div><h4>Entdecken</h4><ul><li><a href="shop-de.html">Shop</a></li><li><a href="hardware-de.html">Hardware</a></li><li><a href="software-de.html">Software</a></li><li><a href="geschichte-de.html">Geschichte</a></li></ul></div>
+      <div><h4>Hilfe</h4><ul><li><a href="support-de.html">Support</a></li><li><a href="support-de.html">Tutorials</a></li><li><a href="support-de.html">Community</a></li><li><a href="contact-de.html">Kontakt</a></li></ul></div>
+      <div><h4>Über uns</h4><ul><li><a href="geschichte-de.html">Foundation</a></li><li><a href="contact-de.html">Presse</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">Impressum</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-flex">
+      <p class="copyright">© 2025 Raspberry Pi Foundation – Gemeinnützig & offen für alle.</p>
+      <div class="legal-links"><a href="#">Datenschutz</a><a href="#">Impressum</a></div>
+    </div>
+  </div>
+</footer>
+<script src="../main.js" data-lang="de" data-page="shop"></script>
+<script src="../cart.js"></script>
+</body>
+</html>
