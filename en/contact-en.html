@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" href="../pic/raspberrypi_logo.png">
   <link rel="apple-touch-icon" href="../pic/raspberrypi_logo.png">
   <link rel="stylesheet" href="../main.css">
+<script>(function(){var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
 </head>
 <body>
 <header class="site-header" id="siteHeader">
@@ -58,7 +59,7 @@
       </div>
       <div class="contact-cards"><div class="contact-card">
           <span class="contact-icon">📧</span>
-          <div><div class="contact-type">Email</div><div class="contact-val">hello@raspberrypi.com</div></div>
+          <div><div class="contact-type">Email</div><div class="contact-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ddb5b8b1b1b29dafbcaeadbfb8afafa4adb4f3beb2b0">[email&#160;protected]</a></div></div>
         </div><div class="contact-card">
           <span class="contact-icon">💬</span>
           <div><div class="contact-type">Discord</div><div class="contact-val">discord.gg/raspberrypi</div></div>
@@ -102,17 +103,16 @@
     <div class="footer-links">
       <div><h4>Explore</h4><ul><li><a href="shop-en.html">Shop</a></li><li><a href="hardware-en.html">Hardware</a></li><li><a href="software-en.html">Software</a></li><li><a href="geschichte-en.html">History</a></li></ul></div>
       <div><h4>Help</h4><ul><li><a href="support-en.html">Support</a></li><li><a href="support-en.html">Tutorials</a></li><li><a href="support-en.html">Community</a></li><li><a href="contact-en.html">Contact</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="geschichte-en.html">Foundation</a></li><li><a href="contact-en.html">Press</a></li><li><a href="#">Privacy</a></li><li><a href="#">Imprint</a></li></ul></div>
+            <div><h4>About</h4><ul><li><a href="about-en.html">Foundation</a></li><li><a href="press-en.html">Press</a></li><li><a href="privacy-en.html">Privacy</a></li><li><a href="imprint-en.html">Imprint</a></li></ul></div>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="container footer-bottom-flex">
       <p class="copyright">© 2025 Raspberry Pi Foundation – Non-profit & open for all.</p>
-      <div class="legal-links"><a href="#">Privacy</a><a href="#">Imprint</a></div>
-    </div>
-  </div>
-</footer>
-<script src="../main.js" data-lang="en" data-page="kontakt"></script>
-
+      <div class="legal-links"><a href="privacy-en.html">Privacy</a><a href="imprint-en.html">Imprint</a>
+<script>
+  var btn=document.getElementById("themeToggle");
+  if(btn){btn.addEventListener("click",function(){var c=document.documentElement.getAttribute("data-theme");var n=c==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);localStorage.setItem("theme",n);});}
+</script>
 </body>
 </html>
