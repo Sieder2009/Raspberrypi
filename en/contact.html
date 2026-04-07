@@ -109,10 +109,37 @@
   <div class="footer-bottom">
     <div class="container footer-bottom-flex">
       <p class="copyright">© 2025 Raspberry Pi Foundation – Non-profit & open for all.</p>
-      <div class="legal-links"><a href="privacy.html">Privacy</a><a href="imprint.html">Imprint</a>
+      <div class="legal-links"><a href="privacy.html">Privacy</a><a href="imprint.html">Imprint</a></div>
+    </div>
+  </div>
+</footer>
+<script src="../main.js" data-lang="en" data-page="contact"></script>
 <script>
+  // Theme toggle
   var btn=document.getElementById("themeToggle");
   if(btn){btn.addEventListener("click",function(){var c=document.documentElement.getAttribute("data-theme");var n=c==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);localStorage.setItem("theme",n);});}
+
+  // Contact form submit
+  var submitBtn = document.getElementById("cf-submit");
+  if(submitBtn){
+    submitBtn.addEventListener("click", function(){
+      var fn = document.getElementById("cf-fn").value.trim();
+      var ln = document.getElementById("cf-ln").value.trim();
+      var email = document.getElementById("cf-email").value.trim();
+      var msg = document.getElementById("cf-msg").value.trim();
+      if(!fn || !email || !msg){
+        alert("Please fill in at least your first name, email address and message.");
+        return;
+      }
+      var okMsg = submitBtn.getAttribute("data-ok");
+      submitBtn.textContent = okMsg;
+      submitBtn.disabled = true;
+      document.getElementById("cf-fn").value = "";
+      document.getElementById("cf-ln").value = "";
+      document.getElementById("cf-email").value = "";
+      document.getElementById("cf-msg").value = "";
+    });
+  }
 </script>
 </body>
 </html>
