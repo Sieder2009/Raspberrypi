@@ -22,7 +22,7 @@
  *  Damit weiß nav.js welche Sprache aktiv ist.
  *
  * Dateinamensschema:
- *  index-de.html, shop-it.html, contact-en.html usw.
+ *  index.html, shop.html, contact.html usw.
  *  Der Basis-Name (z.B. "shop") + Suffix ("-de") ergibt die Datei.
  * ============================================================
  */
@@ -76,7 +76,7 @@
 
   /**
    * Sprach-Suffix für Dateinamen.
-   * shop + '-de' + '.html' = shop-de.html
+   * shop + '-de' + '.html' = shop.html
    */
   const SUFFIX = { de: '-de', it: '-it', en: '-en' };
 
@@ -173,14 +173,14 @@
 
   /**
    * Aus der aktuellen URL den Dateinamen lesen.
-   * Beispiel: "/var/www/html/shop-de.html" → "shop-de.html"
+   * Beispiel: "/var/www/html/shop.html" → "shop.html"
    */
-  const rawFile = window.location.pathname.split('/').pop() || 'index-de.html';
+  const rawFile = window.location.pathname.split('/').pop() || 'index.html';
 
   /**
    * Den Sprachsuffix entfernen, um den Basis-Namen zu erhalten.
-   * "shop-de.html" → "shop"
-   * "contact-it.html" → "contact"
+   * "shop.html" → "shop"
+   * "contact.html" → "contact"
    */
   const baseName = rawFile.replace(/-de\.html$|-it\.html$|-en\.html$|\.html$/, '');
 
@@ -208,7 +208,7 @@
    * Jeder Button verlinkt zur gleichen Seite (gleicher Basis-Name)
    * aber mit einem anderen Sprachsuffix.
    *
-   * Beispiel: auf shop-de.html → Links zu shop-de.html, shop-it.html, shop-en.html
+   * Beispiel: auf shop.html → Links zu shop.html, shop.html, shop.html
    */
   function buildLangButtons() {
     const langs = [
@@ -476,7 +476,7 @@
    * (In Produktion würde hier ein PHP/Server-Endpunkt angesprochen.)
    */
   function initSupportForm() {
-    // Nur auf Support-Seiten (support-de.html, support-it.html, support-en.html)
+    // Nur auf Support-Seiten (support.html, support.html, support.html)
     if (baseName !== 'support') return;
 
     const t = SUPPORT_TEXT[LANG];

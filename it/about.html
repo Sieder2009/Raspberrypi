@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi siamo · Raspberry Pi</title>
+  <link rel="icon" type="image/png" href="../pic/raspberrypi_logo.png">
+  <link rel="apple-touch-icon" href="../pic/raspberrypi_logo.png">
+  <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="container nav-container">
+    <a href="index.html" class="brand" aria-label="Raspberry Pi Home">
+      <img src="../pic/raspberrypi_logo.png" alt="Raspberry Pi Logo" class="brand-logo">
+      <span class="brand-text">raspberry<span>pi</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="geschichte.html" class="nav-link">Storia</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="hardware.html" class="nav-link">Hardware</a></li>
+        <li><a href="software.html" class="nav-link">Software</a></li>
+        <li><a href="support.html" class="nav-link">Supporto</a></li>
+        <li><a href="contact.html" class="nav-link">Contatto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-flags" role="navigation" aria-label="Lingua">
+        <a href="../de/ueber-uns.html" class="lang-flag-btn" title="DE"><span class="lang-flag-icon">🇩🇪</span><span class="lang-code-label">DE</span></a>
+        <a href="../it/about.html" class="lang-flag-btn lang-active" title="IT"><span class="lang-flag-icon">🇮🇹</span><span class="lang-code-label">IT</span></a>
+        <a href="../en/about.html" class="lang-flag-btn" title="EN"><span class="lang-flag-icon">🇬🇧</span><span class="lang-code-label">EN</span></a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+        <span class="theme-icon-sun" aria-hidden="true">☀️</span>
+        <span class="theme-icon-moon" aria-hidden="true">🌙</span>
+      </button>
+      <button class="mobile-menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="hero-full" style="min-height:38vh">
+    <div class="hero-full-img"><img src="../pic/value-education.png" alt="Chi siamo" loading="eager" style="object-position:center top"></div>
+    <div class="hero-full-overlay"><div class="container"><div class="hero-full-content">
+      <span class="hero-badge-white">chi siamo</span>
+      <h1>Chi siamo</h1><p>Chi siamo e cosa ci spinge.</p>
+    </div></div></div>
+  </section>
+  <section class="family-section"><div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">chi siamo</span>
+      <h2>La Raspberry Pi Foundation</h2>
+      <p class="section-subhead">Un'organizzazione non profit con una missione: rendere la tecnologia accessibile a tutti.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:3rem">
+      <a href="geschichte.html" style="display:block;text-decoration:none;color:inherit;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;transition:var(--transition)" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(214,46,74,.3)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+        <div style="font-size:2.2rem;margin-bottom:1rem">🏛️</div>
+        <h3 style="margin-bottom:.5rem">Foundation</h3>
+        <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.65">Storia, missione e le persone dietro Raspberry Pi. Per l'educazione e la tecnologia dal 2012.</p>
+        <div style="margin-top:1rem;font-size:.85rem;font-weight:600;color:var(--raspberry-red)">Scopri di più →</div>
+      </a>
+      <a href="press.html" style="display:block;text-decoration:none;color:inherit;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;transition:var(--transition)" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(214,46,74,.3)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+        <div style="font-size:2.2rem;margin-bottom:1rem">📰</div>
+        <h3 style="margin-bottom:.5rem">Stampa</h3>
+        <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.65">Richieste stampa, loghi, media kit e contatto per l'ufficio stampa della Raspberry Pi Foundation.</p>
+        <div style="margin-top:1rem;font-size:.85rem;font-weight:600;color:var(--raspberry-red)">Ufficio stampa →</div>
+      </a>
+      <a href="privacy.html" style="display:block;text-decoration:none;color:inherit;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;transition:var(--transition)" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(214,46,74,.3)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+        <div style="font-size:2.2rem;margin-bottom:1rem">🔒</div>
+        <h3 style="margin-bottom:.5rem">Privacy</h3>
+        <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.65">La nostra informativa sulla privacy, informazioni GDPR e come gestiamo i tuoi dati.</p>
+        <div style="margin-top:1rem;font-size:.85rem;font-weight:600;color:var(--raspberry-red)">Leggi la privacy →</div>
+      </a>
+      <a href="imprint.html" style="display:block;text-decoration:none;color:inherit;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;transition:var(--transition)" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(214,46,74,.3)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+        <div style="font-size:2.2rem;margin-bottom:1rem">📋</div>
+        <h3 style="margin-bottom:.5rem">Note legali</h3>
+        <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.65">Informazioni legali, responsabili e note relative a questo sito web.</p>
+        <div style="margin-top:1rem;font-size:.85rem;font-weight:600;color:var(--raspberry-red)">Vedi note legali →</div>
+      </a>
+    </div>
+    <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center">
+      <div><div style="font-size:2.2rem;font-weight:900;color:var(--raspberry-red);letter-spacing:-0.03em">60 M+</div><div style="font-size:.85rem;color:var(--text-secondary);margin-top:.35rem">Schede vendute nel mondo</div></div><div><div style="font-size:2.2rem;font-weight:900;color:var(--raspberry-red);letter-spacing:-0.03em">2012</div><div style="font-size:.85rem;color:var(--text-secondary);margin-top:.35rem">Anno di fondazione</div></div><div><div style="font-size:2.2rem;font-weight:900;color:var(--raspberry-red);letter-spacing:-0.03em">Cambridge</div><div style="font-size:.85rem;color:var(--text-secondary);margin-top:.35rem">Sede, UK</div></div><div><div style="font-size:2.2rem;font-weight:900;color:var(--raspberry-red);letter-spacing:-0.03em">Non-Profit</div><div style="font-size:.85rem;color:var(--text-secondary);margin-top:.35rem">Aperta a tutti</div></div>
+    </div>
+  </div></section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand-footer">
+        <img src="../pic/raspberrypi_logo.png" alt="Logo" style="width:26px;height:26px;object-fit:contain;filter:brightness(10)">
+        <span class="brand-text">raspberry<span>pi</span></span>
+      </a>
+      <p>Tecnologia con cuore. Dal 2012 per un futuro digitale aperto e inclusivo.</p>
+      <div class="footer-social"><a href="https://github.com/raspberrypi" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a><a href="https://youtube.com/@raspberrypi" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://discord.gg/raspberrypi" class="social-link" aria-label="Discord" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028z"/></svg></a><a href="https://forums.raspberrypi.com" class="social-link" aria-label="Forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div>
+    </div>
+    <div class="footer-links">
+      <div><h4>Scopri</h4><ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="hardware.html">Hardware</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="geschichte.html">Storia</a></li>
+      </ul></div>
+      <div><h4>Aiuto</h4><ul>
+        <li><a href="support.html">Supporto</a></li>
+        <li><a href="support.html">Tutorial</a></li>
+        <li><a href="support.html">Community</a></li>
+        <li><a href="contact.html">Contatto</a></li>
+      </ul></div>
+      <div><h4>Chi siamo</h4><ul>
+        <li><a href="about.html">Foundation</a></li>
+        <li><a href="press.html">Stampa</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="imprint.html">Note legali</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-flex">
+      <p class="copyright">© 2025 Raspberry Pi Foundation – Non profit, aperta a tutti.</p>
+      <div class="legal-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="imprint.html">Note legali</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../main.js" data-lang="it" data-page="about"></script>
+</body>
+</html>

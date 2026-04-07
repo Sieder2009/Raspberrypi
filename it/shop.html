@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Negozio · Raspberry Pi</title>
+  <meta name="description" content="Tutti i prodotti Raspberry Pi: Pi 5, Zero, kit iniziali e accessori.">
+  <link rel="icon" type="image/png" href="../pic/raspberrypi_logo.png">
+  <link rel="apple-touch-icon" href="../pic/raspberrypi_logo.png">
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="../cart.css">
+</head>
+<body>
+
+<!-- Cart Overlay & Drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Carrello">
+  <div class="cart-drawer-header">
+    <span class="cart-drawer-title">🛒 Carrello</span>
+    <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-drawer-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span id="cartTotalLabel">Totale</span>
+      <span class="cart-total-price" id="cartTotal">€ 0</span>
+    </div>
+    <div class="cart-actions">
+      <button class="cart-btn-clear" id="cartClearBtn">Svuota</button>
+      <button class="cart-btn-checkout" id="cartCheckoutBtn">Vai alla cassa</button>
+    </div>
+  </div>
+</div>
+<div id="cart-toast" class="cart-toast"></div>
+<header class="site-header" id="siteHeader">
+  <div class="container nav-container">
+    <a href="index.html" class="brand" aria-label="Raspberry Pi Home">
+      <img src="../pic/raspberrypi_logo.png" alt="Raspberry Pi Logo" class="brand-logo">
+      <span class="brand-text">raspberry<span>pi</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="geschichte.html" class="nav-link">Storia</a></li>
+        <li><a href="shop.html" class="nav-link active">Shop</a></li>
+        <li><a href="hardware.html" class="nav-link">Hardware</a></li>
+        <li><a href="software.html" class="nav-link">Software</a></li>
+        <li><a href="support.html" class="nav-link">Supporto</a></li>
+        <li><a href="contact.html" class="nav-link">Contatto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-flags" role="navigation" aria-label="Lingua"><a href="../de/shop.html" class="lang-flag-btn" title="DE"><span class="lang-flag-icon">🇩🇪</span><span class="lang-code-label">DE</span></a><a href="shop.html" class="lang-flag-btn lang-active" title="IT"><span class="lang-flag-icon">🇮🇹</span><span class="lang-code-label">IT</span></a><a href="../en/shop.html" class="lang-flag-btn" title="EN"><span class="lang-flag-icon">🇬🇧</span><span class="lang-code-label">EN</span></a></div>
+      <button class="cart-btn" id="cartBtn" aria-label="Carrello">🛒<span class="cart-badge" aria-live="polite">0</span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+        <span class="theme-icon-sun" aria-hidden="true">☀️</span>
+        <span class="theme-icon-moon" aria-hidden="true">🌙</span>
+      </button>
+      <button class="mobile-menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <section class="hero-full" style="min-height:50vh">
+    <div class="hero-full-img"><img src="../pic/raspberry-pi-Starter-kit.png" alt="Starter Kit" loading="eager" style="background:#f5f5f0;object-position:center"></div>
+    <div class="hero-full-overlay"><div class="container"><div class="hero-full-content">
+      <span class="hero-badge-white">tutti i prodotti</span>
+      <h1>Il nostro negozio</h1><p>Il prodotto Raspberry Pi giusto per ogni progetto – dal principiante al professionista.</p>
+    </div></div></div>
+  </section>
+  
+  <!-- DOVE INIZIARE -->
+  <section class="intro-section" style="background:var(--bg-primary)">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">consigli</span>
+        <h2>Da dove iniziare?</h2>
+        <p class="section-subhead">Tre punti di partenza semplici – in base alla tua esperienza e al tuo budget.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-bottom:2rem">
+        <div style="background:var(--bg-secondary);border:2px solid var(--raspberry-red);border-radius:var(--radius-lg);padding:1.5rem;position:relative">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--raspberry-red);color:white;font-size:.7rem;font-weight:700;padding:.2rem .8rem;border-radius:99px;text-transform:uppercase">Principiante</div>
+          <div style="font-size:2rem;margin-bottom:.75rem">🚀</div>
+          <h3 style="margin-bottom:.5rem">Kit iniziale</h3>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Pi 5, alimentatore, custodia, SD card da 64 GB e raffreddatore attivo. Tutto il necessario per iniziare.</p>
+          <div style="font-size:1.4rem;font-weight:800;color:var(--raspberry-red);margin-bottom:.75rem">Da € 120</div>
+          <button class="btn btn-primary" style="display:flex;justify-content:center;width:100%" data-cart-add data-cart-id="starter-kit" data-cart-name="Kit iniziale" data-cart-price="120" data-cart-img="../pic/raspberry-pi-Starter-kit.png">Acquista</button>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;position:relative">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--bg-tertiary);color:var(--text-secondary);font-size:.7rem;font-weight:700;padding:.2rem .8rem;border-radius:99px;text-transform:uppercase;border:1px solid var(--border-color)">Avanzato</div>
+          <div style="font-size:2rem;margin-bottom:.75rem">⚡</div>
+          <h3 style="margin-bottom:.5rem">Pi 5 – 8 GB</h3>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Solo la scheda. Ideale se hai già alimentatore, custodia e SD card dal Pi 4.</p>
+          <div style="font-size:1.4rem;font-weight:800;color:var(--raspberry-red);margin-bottom:.75rem">€ 84</div>
+          <button class="btn btn-primary" style="display:flex;justify-content:center;width:100%" data-cart-add data-cart-id="pi5-8gb" data-cart-name="Raspberry Pi 5 – 8 GB" data-cart-price="84" data-cart-img="../pic/pi5_8GB-150x112.png">Acquista</button>
+        </div>
+        <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;position:relative">
+          <div style="position:absolute;top:-12px;left:1.25rem;background:var(--bg-tertiary);color:var(--text-secondary);font-size:.7rem;font-weight:700;padding:.2rem .8rem;border-radius:99px;text-transform:uppercase;border:1px solid var(--border-color)">Maker</div>
+          <div style="font-size:2rem;margin-bottom:.75rem">🔧</div>
+          <h3 style="margin-bottom:.5rem">Pi Zero 2 W</h3>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Piccolo, economico, completo. Perfetto per wearable, moduli fotocamera e sensori nascosti.</p>
+          <div style="font-size:1.4rem;font-weight:800;color:var(--raspberry-red);margin-bottom:.75rem">€ 15</div>
+          <button class="btn btn-primary" style="display:flex;justify-content:center;width:100%" data-cart-add data-cart-id="pi-zero2w" data-cart-name="Pi Zero 2 W" data-cart-price="15" data-cart-img="../pic/zero2-hero.png">Acquista</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="family-section"><div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">prodotti</span>
+      <h2>Per ogni progetto</h2>
+    </div>
+    <div class="family-grid"><div class="family-card reveal">
+          <a href="product-pi5-16gb.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="family-img-wrap"><img src="../pic/16gb.png" alt="Raspberry Pi 5 – 16 GB" loading="lazy" style="object-fit:contain"></div>
+          </a>
+          <div class="family-info">
+            <span class="family-badge new-badge">Nuovo</span>
+            <h3><a href="product-pi5-16gb.html" style="text-decoration:none;color:inherit">Raspberry Pi 5 – 16 GB</a></h3><p>BCM2712, 2,4 GHz, PCIe 2.0, USB 3.0. Il Pi più veloce di sempre.</p>
+            <div class="family-price">€ 120</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="btn btn-primary" style="flex:1"
+                data-cart-add data-cart-id="pi5-16gb" data-cart-name="Raspberry Pi 5 – 16 GB"
+                data-cart-price="120" data-cart-img="../pic/16gb.png">Aggiungi al carrello</button>
+              <a href="product-pi5-16gb.html" class="btn btn-outline" style="flex:0 0 auto;padding:0 1rem">Vedi dettagli</a>
+            </div>
+          </div>
+        </div><div class="family-card reveal">
+          <a href="product-pi5-8gb.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="family-img-wrap"><img src="../pic/pi5_8GB-150x112.png" alt="Raspberry Pi 5 – 8 GB" loading="lazy" style="object-fit:contain"></div>
+          </a>
+          <div class="family-info">
+            <span class="family-badge new-badge">Nuovo</span>
+            <h3><a href="product-pi5-8gb.html" style="text-decoration:none;color:inherit">Raspberry Pi 5 – 8 GB</a></h3><p>BCM2712, 8 GB LPDDR4X RAM, PCIe 2.0, Gigabit Ethernet.</p>
+            <div class="family-price">€ 84</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="btn btn-primary" style="flex:1"
+                data-cart-add data-cart-id="pi5-8gb" data-cart-name="Raspberry Pi 5 – 8 GB"
+                data-cart-price="84" data-cart-img="../pic/pi5_8GB-150x112.png">Aggiungi al carrello</button>
+              <a href="product-pi5-8gb.html" class="btn btn-outline" style="flex:0 0 auto;padding:0 1rem">Vedi dettagli</a>
+            </div>
+          </div>
+        </div><div class="family-card reveal">
+          <a href="product-pi-zero2w.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="family-img-wrap"><img src="../pic/zero2-hero.png" alt="Pi Zero 2 W" loading="lazy" style="object-fit:contain"></div>
+          </a>
+          <div class="family-info">
+            <span class="family-badge ">Compatto</span>
+            <h3><a href="product-pi-zero2w.html" style="text-decoration:none;color:inherit">Pi Zero 2 W</a></h3><p>Quad-core, Wi-Fi, Bluetooth – solo 15 €.</p>
+            <div class="family-price">€ 15</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="btn btn-primary" style="flex:1"
+                data-cart-add data-cart-id="pi-zero2w" data-cart-name="Pi Zero 2 W"
+                data-cart-price="15" data-cart-img="../pic/zero2-hero.png">Aggiungi al carrello</button>
+              <a href="product-pi-zero2w.html" class="btn btn-outline" style="flex:0 0 auto;padding:0 1rem">Vedi dettagli</a>
+            </div>
+          </div>
+        </div><div class="family-card reveal">
+          <a href="product-pi500.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="family-img-wrap"><img src="../pic/hero_tastature_Pi500.png" alt="Pi 500" loading="lazy" style="object-fit:contain"></div>
+          </a>
+          <div class="family-info">
+            <span class="family-badge ">All-in-One</span>
+            <h3><a href="product-pi500.html" style="text-decoration:none;color:inherit">Pi 500</a></h3><p>Computer e tastiera insieme – collega al monitor.</p>
+            <div class="family-price">From € 70</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="btn btn-primary" style="flex:1"
+                data-cart-add data-cart-id="pi500" data-cart-name="Pi 500"
+                data-cart-price="70" data-cart-img="../pic/hero_tastature_Pi500.png">Aggiungi al carrello</button>
+              <a href="product-pi500.html" class="btn btn-outline" style="flex:0 0 auto;padding:0 1rem">Vedi dettagli</a>
+            </div>
+          </div>
+        </div><div class="family-card reveal">
+          <a href="product-starter-kit.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="family-img-wrap"><img src="../pic/raspberry-pi-Starter-kit.png" alt="Kit iniziale" loading="lazy" style="object-fit:contain"></div>
+          </a>
+          <div class="family-info">
+            <span class="family-badge new-badge">Consigliato</span>
+            <h3><a href="product-starter-kit.html" style="text-decoration:none;color:inherit">Kit iniziale</a></h3><p>Pi 5, alimentatore, case, SD card 64 GB, raffreddatore e cavi.</p>
+            <div class="family-price">From € 120</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="btn btn-primary" style="flex:1"
+                data-cart-add data-cart-id="starter-kit" data-cart-name="Kit iniziale"
+                data-cart-price="120" data-cart-img="../pic/raspberry-pi-Starter-kit.png">Aggiungi al carrello</button>
+              <a href="product-starter-kit.html" class="btn btn-outline" style="flex:0 0 auto;padding:0 1rem">Vedi dettagli</a>
+            </div>
+          </div>
+        </div><div class="family-card reveal">
+          <a href="product-camera-sensors.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="family-img-wrap"><img src="../pic/zero2-little-genius.png" alt="Fotocamera e sensori" loading="lazy" style="object-fit:contain"></div>
+          </a>
+          <div class="family-info">
+            <span class="family-badge ">Accessori</span>
+            <h3><a href="product-camera-sensors.html" style="text-decoration:none;color:inherit">Fotocamera e sensori</a></h3><p>Pi Camera 3, moduli HAT, dissipatori e molto altro.</p>
+            <div class="family-price">From € 8</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.75rem">
+              <button class="btn btn-primary" style="flex:1"
+                data-cart-add data-cart-id="camera-sensors" data-cart-name="Fotocamera e sensori"
+                data-cart-price="8" data-cart-img="../pic/zero2-little-genius.png">Vedi tutti</button>
+              <a href="product-camera-sensors.html" class="btn btn-outline" style="flex:0 0 auto;padding:0 1rem">Vedi tutti</a>
+            </div>
+          </div>
+        </div></div>
+  </div></section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand-footer">
+        <img src="../pic/raspberrypi_logo.png" alt="Logo" style="width:26px;height:26px;object-fit:contain;filter:brightness(10)">
+        <span class="brand-text">raspberry<span>pi</span></span>
+      </a>
+      <p>Tecnologia con cuore. Dal 2012 per un futuro digitale aperto e creativo.</p>
+      <div class="footer-social"><a href="https://github.com/raspberrypi" class="social-link" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a><a href="https://youtube.com/@raspberrypi" class="social-link" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://discord.gg/raspberrypi" class="social-link" aria-label="Discord" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028z"/></svg></a><a href="https://forums.raspberrypi.com" class="social-link" aria-label="Forum" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div>
+    </div>
+    <div class="footer-links">
+      <div><h4>Scopri</h4><ul><li><a href="shop.html">Shop</a></li><li><a href="hardware.html">Hardware</a></li><li><a href="software.html">Software</a></li><li><a href="geschichte.html">Storia</a></li></ul></div>
+      <div><h4>Aiuto</h4><ul><li><a href="support.html">Supporto</a></li><li><a href="support.html">Tutorial</a></li><li><a href="support.html">Community</a></li><li><a href="contact.html">Contatto</a></li></ul></div>
+      <div><h4>Chi siamo</h4><ul><li><a href="about.html">Foundation</a></li><li><a href="press.html">Stampa</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="imprint.html">Note legali</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-flex">
+      <p class="copyright">© 2025 Raspberry Pi Foundation – Non profit, aperta a tutti.</p>
+      <div class="legal-links"><a href="privacy.html">Privacy</a><a href="imprint.html">Note legali</a></div>
+    </div>
+  </div>
+</footer>
+<script src="../main.js" data-lang="it" data-page="shop"></script>
+<script src="../cart.js"></script>
+
+
+<!-- ── Checkout Modal ────────────────────────────────────────── -->
+<div id="checkoutOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:600;align-items:center;justify-content:center;padding:1rem">
+  <div id="checkoutModal" style="background:var(--bg-primary);border-radius:var(--radius-lg);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);position:relative">
+
+    <!-- Header -->
+    <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between">
+      <h2 style="font-size:1.2rem;margin:0">🛍️ Pagamento</h2>
+      <button onclick="closeCheckout()" style="background:var(--bg-tertiary);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--text-secondary);display:flex;align-items:center;justify-content:center">✕</button>
+    </div>
+
+    <!-- Form -->
+    <div id="checkoutForm" style="padding:1.5rem;display:flex;flex-direction:column;gap:1.25rem">
+
+      <!-- Order summary -->
+      <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1rem">
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.75rem">Riepilogo ordine</div>
+        <div id="checkoutSummaryItems" style="display:flex;flex-direction:column;gap:.4rem;font-size:.88rem;color:var(--text-secondary)"></div>
+        <div style="border-top:1px solid var(--border-color);margin-top:.75rem;padding-top:.75rem;display:flex;justify-content:space-between;font-weight:800;font-size:1rem">
+          <span>Totale</span>
+          <span id="checkoutTotal" style="color:var(--raspberry-red)"></span>
+        </div>
+      </div>
+
+      <!-- Personal info -->
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <input id="co-name" type="text" placeholder="Mario Rossi" autocomplete="name"
+          style="width:100%;padding:.8rem 1rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:.95rem;outline:none;transition:border-color .2s"
+          onfocus="this.style.borderColor='var(--raspberry-red)'" onblur="this.style.borderColor='var(--border-color)'">
+        <input id="co-email" type="email" placeholder="mario@esempio.it" autocomplete="email"
+          style="width:100%;padding:.8rem 1rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:.95rem;outline:none;transition:border-color .2s"
+          onfocus="this.style.borderColor='var(--raspberry-red)'" onblur="this.style.borderColor='var(--border-color)'">
+      </div>
+
+      <!-- Card -->
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <div style="position:relative">
+          <input id="co-card" type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number"
+            style="width:100%;padding:.8rem 3rem .8rem 1rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:.95rem;outline:none;transition:border-color .2s;font-family:monospace"
+            onfocus="this.style.borderColor='var(--raspberry-red)'" onblur="this.style.borderColor='var(--border-color)'"
+            oninput="formatCard(this)">
+          <span id="cardIcon" style="position:absolute;right:.85rem;top:50%;transform:translateY(-50%);font-size:1.4rem;pointer-events:none">💳</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+          <input id="co-exp" type="text" inputmode="numeric" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp"
+            style="width:100%;padding:.8rem 1rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:.95rem;outline:none;transition:border-color .2s;font-family:monospace"
+            onfocus="this.style.borderColor='var(--raspberry-red)'" onblur="this.style.borderColor='var(--border-color)'"
+            oninput="formatExp(this)">
+          <input id="co-cvv" type="text" inputmode="numeric" placeholder="123" maxlength="4" autocomplete="cc-csc"
+            style="width:100%;padding:.8rem 1rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:.95rem;outline:none;transition:border-color .2s;font-family:monospace"
+            onfocus="this.style.borderColor='var(--raspberry-red)'" onblur="this.style.borderColor='var(--border-color)'">
+        </div>
+      </div>
+
+      <p style="font-size:.78rem;color:var(--text-muted);text-align:center">🔒 Connessione sicura e crittografata</p>
+
+      <button onclick="submitCheckout()" id="payBtn"
+        style="width:100%;background:var(--raspberry-red);color:#fff;border:none;padding:1rem;border-radius:var(--radius-pill);font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .2s"
+        onmouseover="this.style.background='var(--raspberry-dark)';this.style.transform='translateY(-1px)'"
+        onmouseout="this.style.background='var(--raspberry-red)';this.style.transform=''">
+        Paga ora
+      </button>
+    </div>
+
+    <!-- Beta success screen (hidden initially) -->
+    <div id="betaSuccess" style="display:none;padding:2.5rem 1.5rem;text-align:center">
+      <div style="font-size:3.5rem;margin-bottom:1rem">🚧</div>
+      <h3 style="font-size:1.3rem;margin-bottom:.75rem">🚧 Versione beta</h3>
+      <p style="color:var(--text-secondary);font-size:.95rem;line-height:1.7;margin-bottom:1.75rem">Questo shop è attualmente in versione beta. Non è possibile effettuare acquisti reali – non verrà addebitato nulla. Grazie per averlo provato!</p>
+      <button onclick="closeCheckout()"
+        style="background:var(--raspberry-red);color:#fff;border:none;padding:.85rem 2rem;border-radius:var(--radius-pill);font-size:.95rem;font-weight:700;cursor:pointer">
+        Capito
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── Field labels placeholders ───────────────────────────────────────────────
+const _coLabels = {
+  name: 'Nome completo',
+  email: 'Indirizzo email',
+  card: 'Numero di carta',
+  expiry: 'Scadenza (MM/AA)',
+  cvv: 'CVV',
+};
+
+// ── Card formatting ─────────────────────────────────────────────────────────
+function formatCard(el) {
+  let v = el.value.replace(/\D/g,'').slice(0,16);
+  el.value = v.match(/.{1,4}/g)?.join(' ') || v;
+  const first = v[0];
+  const icon = document.getElementById('cardIcon');
+  if (icon) {
+    if (first === '4') icon.textContent = '💳'; // Visa-like
+    else if (first === '5') icon.textContent = '💳'; // MC-like
+    else if (first === '3') icon.textContent = '💳'; // Amex-like
+    else icon.textContent = '💳';
+  }
+}
+function formatExp(el) {
+  let v = el.value.replace(/\D/g,'').slice(0,4);
+  if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+  el.value = v;
+}
+
+// ── Open / close checkout ───────────────────────────────────────────────────
+function openCheckout() {
+  const cart = JSON.parse(localStorage.getItem('pi_cart') || '[]');
+  if (!cart.length) return;
+
+  // populate summary
+  const itemsEl = document.getElementById('checkoutSummaryItems');
+  const totalEl = document.getElementById('checkoutTotal');
+  if (itemsEl) {
+    itemsEl.innerHTML = cart.map(i =>
+      `<div style="display:flex;justify-content:space-between"><span>${i.qty}× ${i.name}</span><span style="font-weight:600">€ ${(i.qty * i.price).toFixed(0)}</span></div>`
+    ).join('');
+  }
+  const total = cart.reduce((s,i) => s + i.qty * i.price, 0);
+  if (totalEl) totalEl.textContent = '€ ' + total.toFixed(0);
+
+  // reset views
+  document.getElementById('checkoutForm').style.display = 'flex';
+  document.getElementById('betaSuccess').style.display = 'none';
+
+  const overlay = document.getElementById('checkoutOverlay');
+  overlay.style.display = 'flex';
+  setTimeout(() => overlay.querySelector('#checkoutModal').style.transform = 'scale(1)', 10);
+}
+
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').style.display = 'none';
+}
+
+// click overlay to close
+document.getElementById('checkoutOverlay')?.addEventListener('click', function(e) {
+  if (e.target === this) closeCheckout();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCheckout(); });
+
+// ── Validation ──────────────────────────────────────────────────────────────
+function validateCheckout() {
+  const name  = document.getElementById('co-name')?.value.trim();
+  const email = document.getElementById('co-email')?.value.trim();
+  const card  = document.getElementById('co-card')?.value.replace(/\s/g,'');
+  const exp   = document.getElementById('co-exp')?.value.trim();
+  const cvv   = document.getElementById('co-cvv')?.value.trim();
+
+  const errors = [];
+  if (!name || name.length < 2)         errors.push(_coLabels.name);
+  if (!email || !email.includes('@'))   errors.push(_coLabels.email);
+  if (!card || card.length < 13)        errors.push(_coLabels.card);
+  if (!exp  || exp.length < 5)          errors.push(_coLabels.expiry);
+  if (!cvv  || cvv.length < 3)          errors.push(_coLabels.cvv);
+
+  return errors;
+}
+
+function highlightError(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.borderColor = '#e53935';
+  el.style.animation = 'shake .3s ease';
+  setTimeout(() => { el.style.animation = ''; }, 400);
+}
+
+// ── Submit ──────────────────────────────────────────────────────────────────
+function submitCheckout() {
+  const errors = validateCheckout();
+  if (errors.length > 0) {
+    ['co-name','co-email','co-card','co-exp','co-cvv'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const v = el.value.trim();
+      if (!v || (id==='co-card' && v.replace(/\s/g,'').length < 13) || (id==='co-exp' && v.length < 5) || (id==='co-cvv' && v.length < 3) || (id==='co-email' && !v.includes('@'))) {
+        highlightError(id);
+      }
+    });
+    return;
+  }
+
+  // All valid → show beta notice
+  const btn = document.getElementById('payBtn');
+  if (btn) { btn.textContent = '⏳'; btn.disabled = true; }
+  setTimeout(() => {
+    document.getElementById('checkoutForm').style.display = 'none';
+    document.getElementById('betaSuccess').style.display = 'block';
+    if (btn) { btn.disabled = false; }
+  }, 900);
+}
+</script>
+
+<style>
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+</style>
+<script>
+// Patch: checkout button opens checkout modal if available
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('cartCheckoutBtn');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      if (typeof openCheckout === 'function') {
+        Cart.close();
+        setTimeout(openCheckout, 250);
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
